@@ -14,25 +14,26 @@ public class ScheduledTasks {
 	@Autowired
 	private ScheduledMeasurementsService scheduledMeasurementService;
 
+	@Scheduled(cron="0 5,15,25,35,45,55 * * * *")
 	public void measureAndSaveCurrent() {
 		scheduledMeasurementService.measureAndSaveCurrent();
 	}
-	
+
 	@Scheduled(cron="0 1 * * * *")
 	public void handleHourlyMeasurements() {
 		scheduledMeasurementService.handleHourlyMeasurements();
 	}
-	
+
 	@Scheduled(cron="0 3 0 * * *")
 	public void handleDaily24hMeasurements() {
 		scheduledMeasurementService.handleDaily24hMeasurements();
 	}
-	
+
 	@Scheduled(cron="0 2 0 * * *")
 	public void handleDailyMeasurements() {
 		scheduledMeasurementService.handleDailyMeasurements();
 	}
-	
+
 	@Scheduled(cron="0 2 12 * * *")
 	public void handleNightlyMeasurements() {
 		scheduledMeasurementService.handleNightlyMeasurements();

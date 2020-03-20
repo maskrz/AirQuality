@@ -1,10 +1,13 @@
 package airquality.project.service;
 
 import airquality.project.dto.StationDTO;
+import airquality.project.statics.StationStatus;
 
 import java.util.List;
 
 public interface HardwareService {
 
-    public List<StationDTO> getAllStations();
+    List<StationDTO> getAllStations();
+
+    StationStatus getStationStatus(Long stationId);
 }
